@@ -1,5 +1,6 @@
 export { Parser } from './parser';
 export { Lexer } from './lexer';
+export { StandardTokenTypes } from './tokens';
 export { LineTracker } from './line-tracker';
 export { ArithmaticShunter } from './arithmatic-shunter';
 export {
