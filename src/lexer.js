@@ -7,11 +7,7 @@ import {
 import { LineTracker } from './line-tracker';
 
 export class Lexer {
-  constructor(options) {
-    const defaults = {
-      languageName: 'unnamedlanguage',
-    };
-    this.options = { ...defaults, ...options };
+  constructor() {
     this.tokenTypes = [];
   }
 
@@ -65,6 +61,7 @@ export class Lexer {
     }
 
     const result = [];
+    const errors = [];
     let consumed;
     let remaining = content;
     const tracker = new LineTracker();
@@ -141,14 +138,24 @@ export class Lexer {
           .replace('\r', '\\r')
           .replace('\t', '\\t')
           .replace('\n', '\\n');
-        throw new UnmatchedCharacterException(
-          visibleUserPartOfString,
-          tracker.line,
-          tracker.character
+        // We want to continue lexing when we find unexpected characters
+        // so add the error to the list and then drop the first character
+        // of the remaining input
+        errors.push(
+          new UnmatchedCharacterException(
+            visibleUserPartOfString,
+            tracker.line,
+            tracker.character
+          )
         );
+        tracker.consume(remaining.charAt(0));
+        remaining = remaining.substring(1);
       }
     }
 
-    return result;
+    return {
+      tokens: result,
+      errors,
+    };
   }
 }
