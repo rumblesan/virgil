@@ -1,5 +1,7 @@
 # Virgil
 
+[![Build Status](https://travis-ci.org/rumblesan/virgil.svg?branch=master)](https://travis-ci.org/rumblesan/virgil)
+
 A library to make building parsers and lexers easier.
 
 
