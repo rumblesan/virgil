@@ -15,5 +15,7 @@ Drop me an email at guy@rumblesan.com
 
 ## License
 
-BSD License.
+MIT License.
 
+Original code Copyright 2013 - present Steve Cooper
+Further changes Copyright 2020 - present Guy John
