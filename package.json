@@ -12,7 +12,8 @@
     "test": "jest",
     "posttest": "npm run lint",
     "test:watch": "jest test --watch",
-    "prepublishOnly": "npm run build"
+    "preVersion": "npm run build && npm test",
+    "prepublishOnly": "npm run build && npm test"
   },
   "bugs": {
     "url": "https://github.com/rumblesan/virgil/issues"
