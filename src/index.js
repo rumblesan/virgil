@@ -10,3 +10,5 @@ export {
   ParserException,
   UnexpectedTokenException,
 } from './errors';
+
+export { expectMatchers } from './expect';

@@ -46,6 +46,9 @@
   "jest": {
     "modulePaths": [
       "src"
+    ],
+    "setupFilesAfterEnv": [
+      "./test/init.js"
     ]
   },
   "babel": {
