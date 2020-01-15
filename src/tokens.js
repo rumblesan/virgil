@@ -3,12 +3,10 @@ function escapeRegExp(string) {
 }
 
 export class StandardTokenTypes {
-  static constant(literal, name, role) {
-    role = role || ['keyword'];
+  static constant(literal, name) {
     return {
       name,
       regexp: new RegExp(`^${escapeRegExp(literal)}`),
-      role,
     };
   }
 
@@ -16,7 +14,6 @@ export class StandardTokenTypes {
     return {
       name: 'floating point',
       regexp: /(^-?\d*\.\d+)/,
-      role: ['constant', 'numeric'],
       interpret(content) {
         return parseFloat(content);
       },
@@ -27,7 +24,6 @@ export class StandardTokenTypes {
     return {
       name: 'integer',
       regexp: /^-?\d+/,
-      role: ['constant', 'numeric'],
       interpret(content) {
         return parseInt(content);
       },
@@ -54,48 +50,47 @@ export class StandardTokenTypes {
     return {
       name: 'real number',
       regexp: /^X/,
-      role: ['constant', 'numeric'],
     };
   }
 
   static comma() {
-    return this.constant(',', 'comma', ['punctuation']);
+    return this.constant(',', 'comma');
   }
 
   static period() {
-    return this.constant('.', 'period', ['punctuation']);
+    return this.constant('.', 'period');
   }
 
   static star() {
-    return this.constant('*', 'star', ['punctuation']);
+    return this.constant('*', 'star');
   }
 
   static colon() {
-    return this.constant(':', 'colon', ['punctuation']);
+    return this.constant(':', 'colon');
   }
 
   static openParen() {
-    return this.constant('(', 'open paren', ['punctuation']);
+    return this.constant('(', 'open paren');
   }
 
   static closeParen() {
-    return this.constant(')', 'close paren', ['punctuation']);
+    return this.constant(')', 'close paren');
   }
 
   static openBracket() {
-    return this.constant('{', 'open bracket', ['punctuation']);
+    return this.constant('{', 'open bracket');
   }
 
   static closeBracket() {
-    return this.constant('}', 'close bracket', ['punctuation']);
+    return this.constant('}', 'close bracket');
   }
 
   static openSquareBracket() {
-    return this.constant('[', 'open square bracket', ['punctuation']);
+    return this.constant('[', 'open square bracket');
   }
 
   static closeSquareBracket() {
-    return this.constant(']', 'close square bracket', ['punctuation']);
+    return this.constant(']', 'close square bracket');
   }
 
   static JsonString() {
