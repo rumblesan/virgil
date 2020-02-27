@@ -25,6 +25,14 @@ export class Parser {
     return this.tokens[0].type == tokenType;
   }
 
+  peek() {
+    if (this.eof()) {
+      throw new ParserException('No tokens available');
+    }
+
+    return this.tokens[0];
+  }
+
   match(tokenType) {
     if (this.eof()) {
       throw new ParserException(`Expected ${tokenType} but found EOF`);
@@ -32,6 +40,14 @@ export class Parser {
 
     if (!this.la1(tokenType)) {
       throw new UnexpectedTokenException(tokenType, this.tokens[0]);
+    }
+
+    return this.tokens.shift();
+  }
+
+  next() {
+    if (this.eof()) {
+      throw new ParserException('Expected token but found EOF');
     }
 
     return this.tokens.shift();

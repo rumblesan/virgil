@@ -33,6 +33,24 @@ describe('the parser', () => {
     expect(parser.la1('foo')).toBe(true);
   });
 
+  it('should allow peeking without consuming tokens', () => {
+    const parser = new Parser();
+    parser.initialize([
+      { content: 'token1', type: 'foo', position: 0 },
+      { content: 'token2', type: 'bar', position: 0 },
+    ]);
+    expect(parser.peek()).toEqual({
+      content: 'token1',
+      type: 'foo',
+      position: 0,
+    });
+    expect(parser.peek()).toEqual({
+      content: 'token1',
+      type: 'foo',
+      position: 0,
+    });
+  });
+
   it('should allow matching which consumies tokens', () => {
     const parser = new Parser();
     parser.initialize([
@@ -45,6 +63,24 @@ describe('the parser', () => {
       position: 0,
     });
     expect(parser.match('bar')).toEqual({
+      content: 'token2',
+      type: 'bar',
+      position: 0,
+    });
+  });
+
+  it('should allow next to consume a token', () => {
+    const parser = new Parser();
+    parser.initialize([
+      { content: 'token1', type: 'foo', position: 0 },
+      { content: 'token2', type: 'bar', position: 0 },
+    ]);
+    expect(parser.next()).toEqual({
+      content: 'token1',
+      type: 'foo',
+      position: 0,
+    });
+    expect(parser.next()).toEqual({
       content: 'token2',
       type: 'bar',
       position: 0,
