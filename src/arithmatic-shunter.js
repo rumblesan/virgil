@@ -27,8 +27,12 @@ export class ArithmaticShunter {
         newOp
       );
     }
+    if (this.operatorStack.length < 1) {
+      this.operatorStack.push(newOp);
+      return;
+    }
     const peekOp = this.operatorStack[this.operatorStack.length - 1];
-    if (this.precedences[opSymbol] <= this.precedences[peekOp]) {
+    if (this.precedences[opSymbol] <= this.precedences[peekOp.content]) {
       const topOp = this.operatorStack.pop();
       this.collapseOp(topOp);
     }
