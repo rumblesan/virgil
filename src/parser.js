@@ -76,6 +76,12 @@ export class Parser {
     return { line: this.tokens[0].line, character: this.tokens[0].character };
   }
 
+  tokenPosition(token) {
+    if (this.testing) return {};
+
+    return { line: token.line, character: token.character };
+  }
+
   debugLog(msg) {
     if (this.debug) console.log(msg);
   }
