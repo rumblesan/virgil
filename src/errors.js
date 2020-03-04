@@ -36,6 +36,6 @@ export class UnexpectedTokenException extends ParserException {
     this.displayable = true;
     this.line = token.line;
     this.character = token.character;
-    this.length = token.content.length;
+    this.length = `${token.content}`.length;
   }
 }
