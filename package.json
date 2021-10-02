@@ -8,7 +8,7 @@
   "scripts": {
     "lint": "eslint src",
     "build": "webpack-cli --mode production",
-    "build:dev": "webpack-cli --progress --colors --watch --mode development",
+    "build:dev": "webpack-cli --progress --color --watch --mode development",
     "test": "jest",
     "posttest": "npm run lint",
     "test:watch": "jest test --watch",
@@ -30,19 +30,19 @@
     "lexer"
   ],
   "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/node": "7.7.7",
-    "@babel/preset-env": "^7.12.11",
-    "babel-eslint": "10.0.3",
-    "babel-jest": "^26.6.3",
-    "babel-loader": "8.0.6",
-    "eslint": "6.8.0",
-    "eslint-config-prettier": "6.9.0",
-    "eslint-plugin-prettier": "3.1.2",
-    "jest": "^26.6.3",
-    "prettier": "1.19.1",
-    "webpack": "^5.11.0",
-    "webpack-cli": "3.3.10"
+    "@babel/core": "7.15.5",
+    "@babel/eslint-parser": "7.15.7",
+    "@babel/node": "7.15.4",
+    "@babel/preset-env": "7.15.6",
+    "babel-jest": "26.6.3",
+    "babel-loader": "8.2.2",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "jest": "27.2.4",
+    "prettier": "2.4.1",
+    "webpack": "5.56.0",
+    "webpack-cli": "4.8.0"
   },
   "jest": {
     "modulePaths": [
