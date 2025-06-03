@@ -1,3 +1,4 @@
+import { describe, beforeEach, expect, it } from 'vitest';
 import {
   Lexer,
   StandardTokenTypes,
@@ -35,7 +36,7 @@ describe('When adding token types to the lexer,', () => {
   it('does not require a regexp if a consume function is available', () => {
     expect(() => {
       delete tokenType.regexp;
-      tokenType.consume = function() {};
+      tokenType.consume = function () {};
       lexer.addTokenType(tokenType);
     }).not.toThrow();
   });
@@ -50,7 +51,7 @@ describe('When adding token types to the lexer,', () => {
   it('allows the consume property to be a function', () => {
     expect(() => {
       delete tokenType.regexp;
-      tokenType.consume = function() {};
+      tokenType.consume = function () {};
       lexer.addTokenType(tokenType);
     }).not.toThrow();
   });
@@ -65,7 +66,7 @@ describe('When adding token types to the lexer,', () => {
 
   it('allows an interpret property to be a function', () => {
     expect(() => {
-      tokenType.interpret = function() {
+      tokenType.interpret = function () {
         return 0;
       };
       lexer.addTokenType(tokenType);
@@ -397,13 +398,13 @@ describe('the lexer standard JSON string type', () => {
   });
 
   // FIXME Both of these tests hang. Why?!
-  xit('should fail to recognise \\ at the end of a string', () => {
+  it.skip('should fail to recognise \\ at the end of a string', () => {
     expect(() => {
       lexer.tokenize('"\\"');
     }).toThrow('No viable alternative at 1.1: \'"\\"...\'');
   });
 
-  xit('should not recognise unknown escaped character, like \\q', () => {
+  it.skip('should not recognise unknown escaped character, like \\q', () => {
     expect(() => {
       lexer.tokenize('"\\q"');
     }).toThrow('No viable alternative at 1.1: \'"\\q"...\'');

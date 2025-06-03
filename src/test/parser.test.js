@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import { Parser, UnexpectedTokenException } from '../index';
 
 describe('the parser', () => {

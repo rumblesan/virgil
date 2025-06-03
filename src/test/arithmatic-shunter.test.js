@@ -1,3 +1,4 @@
+import { describe, beforeEach, expect, it } from 'vitest';
 import { ArithmaticShunter } from '../index';
 
 const operatorPrecedences = {
@@ -22,7 +23,7 @@ const opGen = (op, left, right) => ({
   left,
   right,
 });
-const tokGen = op => ({
+const tokGen = (op) => ({
   content: op,
 });
 

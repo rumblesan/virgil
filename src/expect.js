@@ -1,9 +1,9 @@
-const pass = message => ({
+const pass = (message) => ({
   message: () => message,
   pass: true,
 });
 
-const fail = message => ({
+const fail = (message) => ({
   message: () => message,
   pass: false,
 });
