@@ -1,5 +1,5 @@
 import { describe, beforeEach, expect, it } from 'vitest';
-import { ArithmaticShunter } from '../index';
+import { ArithmaticShunter } from '../index.js';
 
 const operatorPrecedences = {
   '^': 15,

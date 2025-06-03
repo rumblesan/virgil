@@ -3,7 +3,7 @@ import {
   Lexer,
   StandardTokenTypes,
   UnmatchedCharacterException,
-} from '../index';
+} from '../index.js';
 
 describe('When adding token types to the lexer,', () => {
   let lexer;

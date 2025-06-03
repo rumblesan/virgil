@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { Parser, UnexpectedTokenException } from '../index';
+import { Parser, UnexpectedTokenException } from '../index.js';
 
 describe('the parser', () => {
   it('should allow initialization from an array', () => {

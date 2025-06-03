@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { expectMatchers } from '../expect';
+import { expectMatchers } from '../expect.js';
 
 expect.extend({
   toFailTest(actual, msg) {

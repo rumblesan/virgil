@@ -2,9 +2,9 @@ import {
   LexerException,
   PatternDefinitionException,
   UnmatchedCharacterException,
-} from './errors';
+} from './errors.js';
 
-import { LineTracker } from './line-tracker';
+import { LineTracker } from './line-tracker.js';
 
 export class Lexer {
   constructor() {

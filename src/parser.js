@@ -1,4 +1,4 @@
-import { ParserException, UnexpectedTokenException } from './errors';
+import { ParserException, UnexpectedTokenException } from './errors.js';
 
 export class Parser {
   initialize(tokens, options = {}) {

@@ -1,4 +1,4 @@
-import { ParserException, UnexpectedTokenException } from './errors';
+import { ParserException, UnexpectedTokenException } from './errors.js';
 
 export class ArithmaticShunter {
   constructor(precedences, options = {}) {

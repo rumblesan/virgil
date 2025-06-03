@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from 'vitest';
-import { LineTracker } from '../index';
+import { LineTracker } from '../index.js';
 
 describe('LineTracker', () => {
   let tracker;
